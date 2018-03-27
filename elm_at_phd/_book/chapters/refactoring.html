@@ -1,0 +1,547 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Refactoring · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="compile-time.html" />
+    
+    
+    <link rel="prev" href="do-not.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="introduction.html">
+            
+                <a href="introduction.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="prologue.html">
+            
+                <a href="prologue.html">
+            
+                    
+                    Prologue
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="do-not.html">
+            
+                <a href="do-not.html">
+            
+                    
+                    Brave new w...holy cow!
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5" data-path="refactoring.html">
+            
+                <a href="refactoring.html">
+            
+                    
+                    Refactoring
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="compile-time.html">
+            
+                <a href="compile-time.html">
+            
+                    
+                    Compile time
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="components.html">
+            
+                <a href="components.html">
+            
+                    
+                    Components
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="file-structure.html">
+            
+                <a href="file-structure.html">
+            
+                    
+                    File structure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="forms.html">
+            
+                <a href="forms.html">
+            
+                    
+                    Forms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="endpoints.html">
+            
+                <a href="endpoints.html">
+            
+                    
+                    Endpoints
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="child-to-parent.html">
+            
+                <a href="child-to-parent.html">
+            
+                    
+                    Child to Parent/Child/Sibling/First Cousin 2nd removed Communication
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="extensible-type-hell.html">
+            
+                <a href="extensible-type-hell.html">
+            
+                    
+                    Extensible type hell
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="lookup.md">
+            
+                <span>
+            
+                    
+                    Lookup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="final-words.html">
+            
+                <a href="final-words.html">
+            
+                    
+                    Final words
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="GLOSSARY.md">
+            
+                <span>
+            
+                    
+                    Glossary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Refactoring</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="refactoring">Refactoring</h1>
+<p><em>Refactoring typically leads to better code. The effect is cumulative. The opposite is also true, a fear of introducing regressions leads to a cumulative growth of technical debt. To refactor a large codebase: start by tightening primitive types into ADTs, then make Msgs opaque (models too if you&apos;re not confident enough to keep it single responsibility), take a minimalist approach to function args then what modules expose and FINALLY remove impossible state because now the compiler will have your back on these large state changes.</em></p>
+<p>In my last two years of using Elm, the strongest attraction has been the ability to change logic and core components with confidence at any stage of a product&apos;s lifecycle. Time and again we accrue technical debt from fear of breaking things, &quot;It&apos;s not worth the risk&quot;. Eventually, these areas of the code become a liability, but it&apos;s also too risky to modify. Elm&apos;s compiler gave me confidence that no amount of unit or integration test coverage<sup><a href="#fn_cotw-testing" id="reffn_cotw-testing">cotw-testing</a></sup> ever did. So improve the architecture often and fearlessly. This momentum to create and confidence in my code is the drug that keeps me hooked.</p>
+<p>For larger codebases, the order of refactoring is important because type changes cascade and primitive types make regressions much more likely. The aim of these refactors is to reduce the scope of changes and tighten the types so the compiler is able to help us.
+Hence we start with converting primitives to ADTs.</p>
+<h4 id="primitive-types-to-adts">Primitive types to ADTs</h4>
+<p>Replace all Int or String types which represent a finite group with an <a href="../GLOSSARY.html#adt" class="glossary-term" title="Algebraic Data Type">ADT</a>.
+For us, this was all enum types and adhoc state transistions ( success, failed, haven&apos;t tried ).</p>
+<pre><code class="lang-haskell"><span class="hljs-title">case</span> formType <span class="hljs-keyword">of</span>
+<span class="hljs-string">&quot;Limits&quot;</span> -&gt;
+<span class="hljs-string">&quot;Benefits&quot;</span> -&gt;
+<span class="hljs-title">_</span> -&gt; empty <span class="hljs-comment">-- (NEVER do this. What happens when you add a new value to the type?)</span>
+</code></pre>
+<p>Replace things like the above with the following:</p>
+<pre><code class="lang-haskell">
+<span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-type">FormType</span> =</span>
+<span class="hljs-type">Limits</span> | <span class="hljs-type">Benefits</span>
+
+<span class="hljs-title">case</span> formType <span class="hljs-keyword">of</span>
+<span class="hljs-type">Limits</span> -&gt;
+<span class="hljs-type">Benefits</span> -&gt;
+</code></pre>
+<p>Consider using tagged types instead of primitives to represent IDs. In our app, we have about 50 types of ids, most of them Ints, some Strings, others... <code>Maybe Float</code>, we won&apos;t talk about those.</p>
+<pre><code class="lang-haskell">
+<span class="hljs-class"><span class="hljs-keyword">type</span> alias <span class="hljs-type">Person</span> = {
+<span class="hljs-title">personId</span> : <span class="hljs-type">Int</span>
+}</span>
+
+<span class="hljs-comment">-- replaced with</span>
+<span class="hljs-class"><span class="hljs-keyword">type</span> alias <span class="hljs-type">Person</span> = {
+<span class="hljs-title">personId</span> : <span class="hljs-type">PersonId</span>
+}</span>
+
+<span class="hljs-comment">-- You&apos;d have to be on a special spectrum of &apos;special&apos;</span>
+<span class="hljs-comment">-- to mistakenly mix up ids ever again.</span>
+<span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-type">PersonId</span> =</span>
+<span class="hljs-type">PersonId</span> <span class="hljs-type">Int</span>
+</code></pre>
+<p>This is the best &apos;bang for buck&apos; refactor <em>and</em> the first in order of what to refactor. When you spot it, change it! It affects only the specific argument or field that uses it but by using ADTs, the compiler starts to understand your domain. Without this, refactoring in Elm will feel as unsafe as any other language. <strong>Use ADTs</strong></p>
+<h4 id="opaque-msg-and-models--to-a-lesser-extent-">Opaque Msg and Models ( to a lesser extent )</h4>
+<p>For modules with a <code>type Msg</code> definition (your typical <code>init, update, view?</code> module), make Msg opaque.</p>
+<p><em>No module should be able to see another module&apos;s internal Msgs.</em></p>
+<p>This is a sign that the two modules have overlapping responsibility and the modelling isn&apos;t quite right. The exception we use is for common Msg types which is used in places such as <a href="#routing">Routing</a> and <a href="#child-to-parentchildsiblingfirst-cousin-2nd-removed-communication">Child to Parent Communication</a></p>
+<p><em>Modules should not return a parent model</em></p>
+<p>I feel like I shouldn&apos;t have to say this, but I&apos;ve seen it at my workplace and the consequences of this are catastrophic in the coupling that it creates. Use a parent model&apos;s data but only ever update your own model.</p>
+<p>If you&apos;re seeing code like:
+<code>model.login.name.first ++ model.login.name.last</code>
+or you&apos;re trying to perform nested model updates:
+<code>{ model | login = { login | name = newName } }</code>
+then, making models opaque may help here.</p>
+<p>The idea is that each module should have responsibility of its own logic. ie, login should be responsible for giving back the first and last name in a <code>fullName: Login -&gt; String</code> function rather that the parent reaching in to manage this. Using opaque models <em>forces</em> the coder to go down the correct path in this case at the cost of extra destructuring.</p>
+<p>If one module is importing another module&apos;s Msg, then <strong>always decouple from the child node</strong>. This is because the child has to make the more generic Msg to pass up the chain. If you start refactoring from the parent, you&apos;ll end up having a domino effect that forces updating all Msg types in one go. Theoretically it should work out, it just takes a long time and sometimes you&apos;ll encounter some known compiler bugs so best to keep the scope small between successful compiles.</p>
+<h4 id="be-a-minimalist-when-exposing-functions-and-the-arguments-of-those-functions">Be a minimalist when exposing functions and the arguments of those functions</h4>
+<p>So, only type defining modules or helper modules should use <code>module xyz exposing (..)</code>, all others should expose the absolute minimum. Do you know how hard it is for a new developer to join a company with a sizeable existing codebase and see <strong>Every. Single. Module. Expose. Everything</strong>? Why even have modules?</p>
+<pre><code class="lang-haskell"><span class="hljs-comment">-- compare</span>
+<span class="hljs-keyword">module</span> Login exposing (..)
+<span class="hljs-keyword">module</span> RouteTypes exposing (..)
+<span class="hljs-keyword">module</span> Logic exposing (..)
+
+<span class="hljs-comment">-- to</span>
+<span class="hljs-keyword">module</span> Login exposing ( <span class="hljs-title">init</span>, <span class="hljs-title">update</span>, <span class="hljs-title">view</span>, <span class="hljs-type">Msg</span>, <span class="hljs-type">Login</span> )
+<span class="hljs-keyword">module</span> RouteTypes exposing (<span class="hljs-type">Routes(..)</span>)
+<span class="hljs-keyword">module</span> Logic exposing (<span class="hljs-title">when</span>, <span class="hljs-title">filterBy</span>, <span class="hljs-title">ifThen</span>)
+</code></pre>
+<p>These modules tell a story just by looking at their exposing. It doesn&apos;t matter that Login has a function called <code>authenticateUser</code>, or that RouteTypes defines more type aliases, when it&apos;s not part of exposing, it&apos;s <em>clearly</em> not designed to be used externally.</p>
+<p>Make functions single responsibility and simple. It is not cool to have all views take in the top level Model. Simplicity in this context does not mean basic or small, it means it takes exactly what it needs to perform exactly what the name implies.</p>
+<pre><code class="lang-haskell"><span class="hljs-comment">-- simple validator in Login.elm</span>
+<span class="hljs-title">validate</span>: <span class="hljs-type">Login</span> -&gt; <span class="hljs-type">List</span> <span class="hljs-type">String</span>
+
+<span class="hljs-comment">-- still a simple validator in AddressEditor.elm because it takes in exactly what it needs to perform the validation</span>
+<span class="hljs-title">validate</span>: <span class="hljs-type">Lookup</span> -&gt; <span class="hljs-type">Address</span> a -&gt; <span class="hljs-type">AddressEditor</span> -&gt; <span class="hljs-type">List</span> <span class="hljs-type">String</span>
+
+<span class="hljs-comment">-- not simple</span>
+<span class="hljs-title">validate</span>: <span class="hljs-type">ParentModel</span> -&gt; <span class="hljs-type">List</span> <span class="hljs-type">String</span>
+
+<span class="hljs-comment">-- even simpler validator in Login.elm which is now usable in other forms, more on this in Components</span>
+<span class="hljs-title">validate</span>: <span class="hljs-type">UsernamePassword</span> a -&gt; <span class="hljs-type">List</span> <span class="hljs-type">String</span>
+</code></pre>
+<p>The reasons why you&apos;d want to keep your function arguments as simple as possible is because:</p>
+<ol>
+<li>You can then pull these functions out to be composed with other data types.</li>
+<li>Bugs will be much easier to narrow down since all functions only take in what they need and so typically only a handful of functions deal with any given area of your app.</li>
+<li>These types then act as great code documentation, compare</li>
+</ol>
+<pre><code class="lang-haskell"><span class="hljs-title">view</span> : <span class="hljs-type">Model</span> -&gt; <span class="hljs-type">Html</span> msg <span class="hljs-comment">-- are we rendering the whole mode?</span>
+<span class="hljs-title">view</span> : <span class="hljs-type">PersonDetail</span> -&gt; <span class="hljs-type">Html</span> msg <span class="hljs-comment">-- actually, just the person</span>
+</code></pre>
+<h4 id="model-the-minimal-set-of-state-needed-remove-impossible-state">Model the minimal set of state needed (remove impossible state)</h4>
+<p>The first time I heard the term &apos;impossible state&apos; was from Richard Feldman&apos;s talk<sup><a href="#fn_impossible-state" id="reffn_impossible-state">impossible-state</a></sup>. This is about the ability to model your business/app state exactly as it is, no more, no less. I do this last because state changes tend to have a domino effect and logic changes are the only way regressions can be introduced into the codebase. With the aforementioned refactoring steps (ADTs, opaque Msg, modules decoupling), the compiler is able to help minimise errors alot better.</p>
+<p>Here&apos;s an example of finding and removing impossible states.
+We have a Grid component, with the ability to show more columns via a &apos;Show More&apos; toggle button. This feature can also be disabled.</p>
+<pre><code class="lang-haskell"><span class="hljs-class"><span class="hljs-keyword">type</span> alias <span class="hljs-type">Grid</span> msg =</span>
+{ hasShowMore : <span class="hljs-type">Bool</span> <span class="hljs-comment">-- whether the feature is enabled</span>
+, showMore : <span class="hljs-type">Bool</span> <span class="hljs-comment">-- on/off state of the toggle button</span>
+, toggleMore : <span class="hljs-type">Maybe</span> msg <span class="hljs-comment">-- the event fired when toggled</span>
+}
+
+<span class="hljs-comment">-- how many possible states are here?</span>
+<span class="hljs-comment">-- 2 x 2 x 2 = 8 states in total</span>
+
+<span class="hljs-comment">-- examples: --</span>
+
+<span class="hljs-comment">-- 1. the feature is disabled but there is a msg? What is the correct intention here?</span>
+
+<span class="hljs-title">hasShowMore</span> = <span class="hljs-type">False</span> <span class="hljs-comment">-- feature is disabled</span>
+<span class="hljs-title">showMore</span> = <span class="hljs-type">True</span> <span class="hljs-comment">-- toggle is on</span>
+<span class="hljs-title">toggleMore</span> : <span class="hljs-type">Just</span> ... <span class="hljs-comment">-- a message exists</span>
+
+
+<span class="hljs-comment">-- 2. feature is enabled but goes nowhere, wasted a couple of hours here alone ( early days )</span>
+
+<span class="hljs-title">hasShowMore</span> = <span class="hljs-type">True</span> <span class="hljs-comment">-- feature is enabled</span>
+<span class="hljs-title">showMore</span> = <span class="hljs-type">True</span>
+<span class="hljs-title">toggleMore</span> : <span class="hljs-type">Nothing</span> <span class="hljs-comment">-- but clicking does nothing (constant source of bugs)</span>
+</code></pre>
+<p>How many states should it have, or rather, what should the logic for this feature be constrained by?</p>
+<pre><code class="lang-haskell"><span class="hljs-class"><span class="hljs-keyword">type</span> alias <span class="hljs-type">ShowMoreToggle</span> = <span class="hljs-type">Bool</span> <span class="hljs-comment">-- on/off state of the toggle button</span></span>
+
+<span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-type">ShowMoreState</span> msg</span>
+= <span class="hljs-type">Hidden</span> <span class="hljs-comment">-- feature disabled, no state</span>
+| <span class="hljs-type">Visible</span> <span class="hljs-type">ShowMoreToggle</span> msg <span class="hljs-comment">-- feature enabled, toggle state + msg</span>
+<span class="hljs-class"><span class="hljs-keyword">type</span> alias <span class="hljs-type">Grid</span> =</span>
+{ showMoreState : <span class="hljs-type">ShowMoreState</span>
+}
+<span class="hljs-comment">-- How many states now?</span>
+<span class="hljs-comment">-- ShowMoreToggle = 2</span>
+<span class="hljs-comment">-- ShowMoreState = 1 + ShowMoreToggle</span>
+<span class="hljs-comment">-- Total of 3 states where the type declarations are self documenting</span>
+</code></pre>
+<p>So these sorts of refactoring are more time consuming because they will force you to handle all the possible states. On the positive side, you&apos;ll <em>never</em> have to consider the invalid cases, not in tests, not in debugging, they are impossible.</p>
+<p>A popular excuse ( the one used for the above code ) is, it works for <em>me</em>, <em>I</em> never make these mistakes, why bother spending the effort. Removing impossible state means no-one else will ever make these mistakes either. This is why we have the confidence to let our newer devs go crazy on the codebase because <em>our state and types are locked down.</em> And once your code hits a level where one brain is no longer enough to store it, then this strategy becomes crucial in reducing regressions.
+(Aside: Flattening an architecture is not something that I consider to be a core refactor. The reason being that it happens as a <em>consequence</em> of decoupling your msg, model, making things opaque and removing impossible state. Blindly flattening everything to the same level under Main.elm does not result in a decouple architecture so those issues are still there and lead to responsibility breakdowns in overexposing types, sky rocketing compile times etc... but more on this in the <a href="../compile-time.md">Compile Time</a>.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="do-not.html" class="navigation navigation-prev " aria-label="Previous page: Brave new w...holy cow!">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="compile-time.html" class="navigation navigation-next " aria-label="Next page: Compile time">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Refactoring","level":"1.5","depth":1,"next":{"title":"Compile time","level":"1.6","depth":1,"path":"chapters/compile-time.md","ref":"chapters/compile-time.md","articles":[]},"previous":{"title":"Brave new w...holy cow!","level":"1.4","depth":1,"path":"chapters/do-not.md","ref":"chapters/do-not.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapters/refactoring.md","mtime":"2018-03-27T11:33:30.017Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-03-27T11:27:00.243Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

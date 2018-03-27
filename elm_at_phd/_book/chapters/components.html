@@ -1,0 +1,574 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Components · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="file-structure.html" />
+    
+    
+    <link rel="prev" href="compile-time.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="introduction.html">
+            
+                <a href="introduction.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="prologue.html">
+            
+                <a href="prologue.html">
+            
+                    
+                    Prologue
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="do-not.html">
+            
+                <a href="do-not.html">
+            
+                    
+                    Brave new w...holy cow!
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="refactoring.html">
+            
+                <a href="refactoring.html">
+            
+                    
+                    Refactoring
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="compile-time.html">
+            
+                <a href="compile-time.html">
+            
+                    
+                    Compile time
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7" data-path="components.html">
+            
+                <a href="components.html">
+            
+                    
+                    Components
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="file-structure.html">
+            
+                <a href="file-structure.html">
+            
+                    
+                    File structure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="forms.html">
+            
+                <a href="forms.html">
+            
+                    
+                    Forms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="endpoints.html">
+            
+                <a href="endpoints.html">
+            
+                    
+                    Endpoints
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="child-to-parent.html">
+            
+                <a href="child-to-parent.html">
+            
+                    
+                    Child to Parent/Child/Sibling/First Cousin 2nd removed Communication
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="extensible-type-hell.html">
+            
+                <a href="extensible-type-hell.html">
+            
+                    
+                    Extensible type hell
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="lookup.md">
+            
+                <span>
+            
+                    
+                    Lookup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="final-words.html">
+            
+                <a href="final-words.html">
+            
+                    
+                    Final words
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="GLOSSARY.md">
+            
+                <span>
+            
+                    
+                    Glossary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Components</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="components">Components</h1>
+<p><em>I present the various types of components we use, discuss their purpose and provide examples. UI Components are arguably the simplest form and everyone should have them. Stateful/Stateless and Hybrid components are patterns we defined along the way as we refactored our codebase to keep domain logic together.</em></p>
+<p>I use the term <em>components</em> fairly loosely here. By a component, I mean a function or a module which does no more or less to achieve one behaviour and acts <em>independently</em> of the calling code. Some will have <code>msg</code> others will have <code>Msg</code>, others may have state, some will just use extensible records <code>{ a | ... }</code>.</p>
+<h4 id="ui-components">UI components</h4>
+<p>We start with the simplest form of components and it looks like this:</p>
+<pre><code>input : String -&gt; (String -&gt; msg) -&gt; Html msg
+readonlyTextInput : String -&gt; Html msg
+
+dateInput : DateTime -&gt; (DateTime -&gt; msg) -&gt; Html msg
+maybeDateInput : Maybe DateTime -&gt; (Maybe DateTime -&gt; msg) -&gt; Html msg
+
+ageInput : Int -&gt; (Int -&gt; msg) -&gt; Html msg
+emailInput : String -&gt; (String -&gt; msg) -&gt; Html msg
+</code></pre><p>These are great, you give it the current state, a msg to call and it will give you a UI control.
+We also do dropdowns, which are all typed. They are either an enum or a dynamic list of types. For the latter they are a record, not strictly typed.</p>
+<pre><code class="lang-haskell"><span class="hljs-title">genderDropdown</span> : <span class="hljs-type">Lookup</span> -&gt; <span class="hljs-type">Int</span> -&gt; (<span class="hljs-type">Int</span> -&gt; msg) -&gt; <span class="hljs-type">Html</span> msg
+<span class="hljs-title">genderDropdown</span> lookup =
+<span class="hljs-type">Dropdown</span>.enumDropdown (<span class="hljs-type">Lookup</span>.genders lookup) <span class="hljs-comment">-- gender types are fixed (Enum)</span>
+<span class="hljs-title">bsbDropdown</span> : <span class="hljs-type">Lookup</span> -&gt; <span class="hljs-type">String</span> -&gt; (<span class="hljs-type">String</span> -&gt; msg) -&gt; <span class="hljs-type">Html</span> msg
+<span class="hljs-title">bsbDropdown</span> lookup =
+<span class="hljs-type">Dropdown</span>.dropdown (<span class="hljs-type">Lookup</span>.bsb lookup) <span class="hljs-comment">-- bsb is variable (Lookup table)</span>
+</code></pre>
+<p>This means our forms can use fields like this:</p>
+<pre><code>View.Layout.paneField &quot;Gender&quot; (View.Components.genderDropdown lookup model.gender Gender)
+</code></pre><p>It took a bit of time to evolve our UI components to the function signatures above. I kept removing things until they had the minimal arguments required to make a function and when I couldn&apos;t take any more out, then I knew I was done.</p>
+<p>Due to how our data types are in the backend, there are <code>Maybe</code> variants of these components to make handling maybe types easier.</p>
+<h4 id="stateless-components">Stateless components</h4>
+<p>A stateless component does not hold state. If you think that statement was obvious, then we have successfully named them. They look like this:</p>
+<pre><code class="lang-haskell"><span class="hljs-class"><span class="hljs-keyword">type</span> alias <span class="hljs-type">Address</span> a =</span>
+{ a
+| addressLine1 : <span class="hljs-type">String</span>
+, countryCode : <span class="hljs-type">String</span>
+, postcode : <span class="hljs-type">Int</span>
+, state : <span class="hljs-type">String</span>
+}
+
+<span class="hljs-title">update</span> : <span class="hljs-type">Lookup</span> -&gt; <span class="hljs-type">Msg</span> -&gt; <span class="hljs-type">Address</span> a -&gt; <span class="hljs-type">Address</span> a
+<span class="hljs-title">view</span> : <span class="hljs-type">Lookup</span> -&gt; <span class="hljs-type">Bool</span> -&gt; <span class="hljs-type">Address</span> a -&gt; <span class="hljs-type">Html</span> <span class="hljs-type">Msg</span>
+<span class="hljs-title">validate</span> : <span class="hljs-type">Address</span> a -&gt; <span class="hljs-type">List</span> <span class="hljs-type">String</span>
+</code></pre>
+<p>Couple of things to note here. To make it possible to interact with the rest of the world with no state, the component defines an extensible record and interacts with that. The component is like a service, it contains <em>domain logic</em> to handle edits for these fields. It knows how to display them, update the fields and we also include all validations in the component.</p>
+<p>This way our various pages or even other components could pick this up and say, hey! please handle <em>my</em> address state for me. And do the validation for it.</p>
+<p>Sure enough our AddressesEditor is one such happy customer:</p>
+<pre><code class="lang-haskell"><span class="hljs-class"><span class="hljs-keyword">type</span> alias <span class="hljs-type">AddressesEditor</span> a =</span>
+{ defaultAddress : <span class="hljs-type">Address</span> a
+, addresses : <span class="hljs-type">List</span> (<span class="hljs-type">Address</span> a)
+, addressType : <span class="hljs-type">Enums</span>.<span class="hljs-type">AddressType</span>
+}
+</code></pre>
+<p>It&apos;s concerned with different types of addresses like a home, work, delivery address and happily uses the AddressEditor.elm component to handle updating single addresses.</p>
+<p>AddressesEditor is a <a href="#stateful-components">Stateful Component</a>, read on!</p>
+<h4 id="stateful-components">Stateful components</h4>
+<p>Stateful components hold state. If that was obvious... see <a href="#stateless-components">Stateless components</a>.</p>
+<p>An Address<strong>es</strong>Editor (not to be confused with an AddressEditor) is one such component, it looks like this (Note, this type of component has fallen out of favor for the reasons outlined at the end of this code block):</p>
+<pre><code class="lang-haskell"><span class="hljs-class"><span class="hljs-keyword">type</span> alias <span class="hljs-type">AddressesEditor</span> a =</span>
+{ defaultAddress : <span class="hljs-type">Address</span> a
+, addresses : <span class="hljs-type">List</span> (<span class="hljs-type">Address</span> a)
+, addressType : <span class="hljs-type">Int</span>
+, viewMode : <span class="hljs-type">ViewMode</span>
+}
+<span class="hljs-title">init</span> : <span class="hljs-type">Address</span> a -&gt; <span class="hljs-type">AddressesEditor</span> a
+<span class="hljs-title">update</span> : <span class="hljs-type">Lookup</span> -&gt; <span class="hljs-type">Msg</span> -&gt; <span class="hljs-type">AddressesEditor</span> a -&gt; ( <span class="hljs-type">AddressesEditor</span> a, <span class="hljs-type">Job</span> <span class="hljs-type">Msg</span> )
+<span class="hljs-title">view</span> : <span class="hljs-type">Lookup</span> -&gt; msg -&gt; (<span class="hljs-type">Msg</span> -&gt; msg) -&gt; <span class="hljs-type">AddressesEditor</span> (<span class="hljs-type">AddressWithBarcode</span> a) -&gt; <span class="hljs-type">Html</span> msg
+<span class="hljs-title">validate</span> : <span class="hljs-type">AddressesEditor</span> a -&gt; <span class="hljs-type">List</span> <span class="hljs-type">String</span>
+
+<span class="hljs-title">getAddresses</span> : <span class="hljs-type">AddressesEditor</span> a -&gt; <span class="hljs-type">List</span> (<span class="hljs-type">Address</span> a)
+<span class="hljs-title">getAddressType</span> : <span class="hljs-type">AddressesEditor</span> a -&gt; <span class="hljs-type">Int</span>
+<span class="hljs-title">getAddress</span> : <span class="hljs-type">Int</span> -&gt; <span class="hljs-type">AddressesEditor</span> a -&gt; <span class="hljs-type">Maybe</span> (<span class="hljs-type">Address</span> a)
+</code></pre>
+<p>So here the component holds addresses as well as the type of address that&apos;s currently being edited and various ways to display the component. Its view function is already looking a bit cluttered and there are a bunch of getters. These actually expose functions to return state to the parent <em>but you have to remember to do this</em>. And if the rest of the world has moved on in the meantime (ie the address in the parent changed), the editor would be holding stale data and worse, saving stale data.</p>
+<p>The core issue here is that the component is <em>holding model state that belongs to the parent</em>. So we no longer use this style of component.</p>
+<p>Our current way of doing stateful components is for the component to hold only UI state and pass parent state in as the stateless components do, ie, our Grid.</p>
+<pre><code class="lang-haskell"><span class="hljs-class"><span class="hljs-keyword">type</span> alias <span class="hljs-type">StatefulGrid</span> subject =</span>
+<span class="hljs-type">Grid</span> subject (<span class="hljs-type">Msg</span> subject)
+<span class="hljs-class"><span class="hljs-keyword">type</span> alias <span class="hljs-type">Grid</span> subject msg =</span>
+{ columns : <span class="hljs-type">List</span> (<span class="hljs-type">Column</span> subject msg)
+, selected : subject -&gt; <span class="hljs-type">Bool</span>
+, rowClicked : <span class="hljs-type">Maybe</span> (subject -&gt; msg)
+, pageSizeChanged : <span class="hljs-type">Maybe</span> (<span class="hljs-type">Int</span> -&gt; msg)
+, pageClicked : <span class="hljs-type">Maybe</span> (<span class="hljs-type">Int</span> -&gt; msg)
+, pageSize : <span class="hljs-type">Int</span>
+, pagePosition : <span class="hljs-type">Int</span>
+, comparer : subject -&gt; subject -&gt; <span class="hljs-type">Bool</span>
+, selection : <span class="hljs-type">List</span> subject
+, multiSelect : <span class="hljs-type">Bool</span>
+, sorter : subject -&gt; subject -&gt; <span class="hljs-type">Order</span>
+, sortGrid : <span class="hljs-type">Bool</span>
+, stateful : <span class="hljs-type">Bool</span>
+, rowAttributes : subject -&gt; <span class="hljs-type">List</span> (<span class="hljs-type">Html</span>.<span class="hljs-type">Attribute</span> msg)
+}
+
+<span class="hljs-title">initPaging</span> : (subject -&gt; subject -&gt; <span class="hljs-type">Bool</span>) -&gt; <span class="hljs-type">StatefulGrid</span> subject
+<span class="hljs-title">update</span> : <span class="hljs-type">Msg</span> subject -&gt; <span class="hljs-type">StatefulGrid</span> subject -&gt; <span class="hljs-type">StatefulGrid</span> subject
+<span class="hljs-title">addCol</span> : <span class="hljs-type">String</span> -&gt; (subject -&gt; comparable) -&gt; <span class="hljs-type">Grid</span> subject msg -&gt; <span class="hljs-type">Grid</span> subject msg
+<span class="hljs-title">render</span> : <span class="hljs-type">List</span> subject -&gt; <span class="hljs-type">Grid</span> subject msg -&gt; <span class="hljs-type">Layout</span>.<span class="hljs-type">Block</span> msg
+</code></pre>
+<p>Let&apos;s not look too deep into the <code>type alias Grid</code>, it&apos;s a great example of how <strong>not</strong> to write bug free, minimal state type aliases. The point here is that <code>Grid</code> only holds <em>UI state</em>. It sorts, it selects, it pages and these are reflected in its UI state. When it comes time to call the view function, we pass the data into it.</p>
+<p>Usage looks like this:</p>
+<pre><code>Grid.empty
+|&gt; Grid.addCol &quot;Component&quot; .description
+|&gt; Grid.addCol &quot;From Date&quot; (.fromDate &gt;&gt; Alfred.Dates.toDate)
+|&gt; Grid.render waitingPeriods
+</code></pre><h4 id="hybrid-components">Hybrid components</h4>
+<p>So our stateless components define the data that they interact with in terms of a extensible record. Our stateful components only hold UI state. Naturally then, if there is a component that both requires UI state and operates on the domain model we combine the two types of components above:</p>
+<pre><code class="lang-haskell"><span class="hljs-class"><span class="hljs-keyword">type</span> alias <span class="hljs-type">ReceiptMethod</span> a =</span>
+{ a
+| receiptMethodTypeId : <span class="hljs-type">String</span>
+, methodReference : <span class="hljs-type">String</span>
+, methodReferenceName : <span class="hljs-type">String</span>
+, methodDate : <span class="hljs-type">DateTime</span>
+}
+<span class="hljs-class"><span class="hljs-keyword">type</span> alias <span class="hljs-type">ReceiptMethodEditor</span> =</span>
+{ newRecipientToggle : <span class="hljs-type">NewRecipientToggle</span>
+}
+
+<span class="hljs-title">update</span> : <span class="hljs-type">Lookup</span> -&gt; <span class="hljs-type">Msg</span> -&gt; <span class="hljs-type">ReceiptMethod</span> a -&gt; <span class="hljs-type">ReceiptMethodEditor</span> -&gt; ( <span class="hljs-type">ReceiptMethod</span> a, <span class="hljs-type">ReceiptMethodEditor</span>, <span class="hljs-type">Job</span> <span class="hljs-type">Msg</span> )
+<span class="hljs-title">view</span> : <span class="hljs-type">Lookup</span> -&gt; <span class="hljs-type">ReceiptMethod</span> a -&gt; <span class="hljs-type">ReceiptMethodEditor</span> -&gt; <span class="hljs-type">Html</span> <span class="hljs-type">Msg</span>
+</code></pre>
+<p><code>ReceiptMethod a</code> is a extensible record and operates on the <code>domain model</code>. <code>ReceiptMethodEditor</code> holds <em>UI state</em> that no parents care about.
+The <code>update</code> function explicitly takes in both separately and returns both. This <em>forces</em> the developer to use its parent&apos;s domain model thus not duplicating the state and removes the risk of forgetting to update it in the parent as was the problem with <code>AddressesEditor</code>.</p>
+<h4 id="component-wizardry">Component Wizardry</h4>
+<p>I just wanted to show off our &apos;wizard&apos; component and demonstrate another kind of component.</p>
+<pre><code>type alias Wizard oz msg =
+{ steps : ZipList (Step oz msg)
+}
+type alias Step state msg =
+{ validStep : state -&gt; Bool
+, init : state -&gt; ( state, Job msg )
+, view : state -&gt; Html msg
+, validate : state -&gt; List String
+}
+next : state -&gt; Wizard state msg -&gt; ( Wizard state msg, state, Job msg )
+back : state -&gt; Wizard state msg -&gt; ( Wizard state msg, state, Job msg )
+
+init : List (Step state msg) -&gt; Wizard state msg
+view : state -&gt; Wizard state msg -&gt; Html msg
+makeStep : (state -&gt; Html msg) -&gt; (state -&gt; List String) -&gt; Step state msg
+</code></pre><p>Used like this:</p>
+<pre><code class="lang-haskell"><span class="hljs-type">Wizard</span>.init
+[ <span class="hljs-type">Wizard</span>.makeStep (viewBase lookup) (always [])
+, <span class="hljs-type">Wizard</span>.makeStep (viewNewDependant lookup) validateNewDependant
+|&gt; <span class="hljs-type">Wizard</span>.withCondition (...)
+, <span class="hljs-type">Wizard</span>.makeStep (viewMemberTransfer lookup) validateMemberTransfer
+|&gt; <span class="hljs-type">Wizard</span>.withInit ...a <span class="hljs-type">Job</span>
+|&gt; <span class="hljs-type">Wizard</span>.withCondition (\state -&gt; ... <span class="hljs-type">True</span>/<span class="hljs-type">False</span>)
+]
+
+
+<span class="hljs-comment">-- on next</span>
+<span class="hljs-title">case</span> <span class="hljs-type">Wizard</span>.validate state wizard <span class="hljs-keyword">of</span>
+[] -&gt;
+<span class="hljs-title">let</span>
+( nextWizard, nextState, job ) =
+<span class="hljs-type">Wizard</span>.next state wizard
+<span class="hljs-title">in</span>
+<span class="hljs-comment">-- on view</span>
+<span class="hljs-type">Wizard</span>.view state wizard
+</code></pre>
+<p>So our wizard component holds a bunch of functions. It doesn&apos;t hold the steps, this is passed in. Next happens once a step is validated. Steps are conditional, they can contain initial jobs (Cmds + extras). Having a component like this is a massive time saver for multi-stepped forms which we seem to have more of now that there&apos;s a wizard.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="compile-time.html" class="navigation navigation-prev " aria-label="Previous page: Compile time">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="file-structure.html" class="navigation navigation-next " aria-label="Next page: File structure">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Components","level":"1.7","depth":1,"next":{"title":"File structure","level":"1.8","depth":1,"path":"chapters/file-structure.md","ref":"chapters/file-structure.md","articles":[]},"previous":{"title":"Compile time","level":"1.6","depth":1,"path":"chapters/compile-time.md","ref":"chapters/compile-time.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapters/components.md","mtime":"2018-03-27T11:32:57.485Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-03-27T11:27:00.243Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

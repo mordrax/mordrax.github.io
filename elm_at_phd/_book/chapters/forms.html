@@ -1,0 +1,624 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Forms · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="endpoints.html" />
+    
+    
+    <link rel="prev" href="file-structure.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="introduction.html">
+            
+                <a href="introduction.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="prologue.html">
+            
+                <a href="prologue.html">
+            
+                    
+                    Prologue
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="do-not.html">
+            
+                <a href="do-not.html">
+            
+                    
+                    Brave new w...holy cow!
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="refactoring.html">
+            
+                <a href="refactoring.html">
+            
+                    
+                    Refactoring
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="compile-time.html">
+            
+                <a href="compile-time.html">
+            
+                    
+                    Compile time
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="components.html">
+            
+                <a href="components.html">
+            
+                    
+                    Components
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="file-structure.html">
+            
+                <a href="file-structure.html">
+            
+                    
+                    File structure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.9" data-path="forms.html">
+            
+                <a href="forms.html">
+            
+                    
+                    Forms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="endpoints.html">
+            
+                <a href="endpoints.html">
+            
+                    
+                    Endpoints
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="child-to-parent.html">
+            
+                <a href="child-to-parent.html">
+            
+                    
+                    Child to Parent/Child/Sibling/First Cousin 2nd removed Communication
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="extensible-type-hell.html">
+            
+                <a href="extensible-type-hell.html">
+            
+                    
+                    Extensible type hell
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="lookup.md">
+            
+                <span>
+            
+                    
+                    Lookup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="final-words.html">
+            
+                <a href="final-words.html">
+            
+                    
+                    Final words
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="GLOSSARY.md">
+            
+                <span>
+            
+                    
+                    Glossary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Forms</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="forms">Forms</h1>
+<p><em>You have a component that shares behaviour ( open, close, save ). You try to make it generic. It does not work. You try another way. It does not work. You try again. It does not work. You think about it for weeks, months. It does not help. You fail and write a 10,000 word essay about how you failed to make generic forms.</em></p>
+<p>Firstly, let&apos;s define what I mean by a form. It&apos;s a <a href="../GLOSSARY.html#tea" class="glossary-term" title="A module that has init, update and view, wired up to Main in a nested fashion">TEA</a> module with some common characteristics. All forms have validation, the ability to save, only one can be open at any given point in time and you can open and close them.</p>
+<pre><code class="lang-haskell"><span class="hljs-comment">-- src/Membership/Forms.elm</span>
+<span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-type">FormState</span></span>
+= <span class="hljs-type">NoForm</span>
+| <span class="hljs-type">AddressState</span> <span class="hljs-type">Address</span>
+| ... x30 forms
+<span class="hljs-comment">-- src/Membership/Forms/Address.elm</span>
+
+<span class="hljs-class"><span class="hljs-keyword">type</span> alias <span class="hljs-type">Address</span> = ...</span>
+<span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-type">Msg</span> = ...</span>
+<span class="hljs-title">init</span> : <span class="hljs-type">Address</span>
+<span class="hljs-title">update</span>: <span class="hljs-type">Msg</span> -&gt; <span class="hljs-type">Address</span> -&gt; (<span class="hljs-type">Address</span>, <span class="hljs-type">Job</span> <span class="hljs-type">Msg</span>)
+<span class="hljs-title">view</span>: <span class="hljs-type">Address</span> -&gt; <span class="hljs-type">Html</span> msg
+<span class="hljs-title">save</span>: <span class="hljs-type">Address</span> -&gt; <span class="hljs-type">Result</span> (<span class="hljs-type">List</span> <span class="hljs-type">String</span>) (<span class="hljs-type">Job</span> <span class="hljs-type">Msg</span>)
+<span class="hljs-title">validate</span>: <span class="hljs-type">Address</span> -&gt; <span class="hljs-type">List</span> <span class="hljs-type">String</span>
+</code></pre>
+<p>Also their layout is very similar, e.g the same header bar with save/cancel buttons. This is driven by the fact we want the user to recognise a form when they see one.</p>
+<p>This is a prime case for making a generic form module to handle this. <em>Surely</em>.</p>
+<p>I&apos;ve rewritten the mechanism around opening, closing, saving and viewing of a form three times and present them below.</p>
+<h4 id="approach-0-forms-as-pages-share-view">Approach 0: Forms as pages, share view</h4>
+<p>The simplest solution is to wire up each form like a <a href="../GLOSSARY.html#tea" class="glossary-term" title="A module that has init, update and view, wired up to Main in a nested fashion">TEA</a> module. The parent will <code>init</code> to open and the form will respond with a tuple to close itself. Since their layout is similar, we used a common view function.</p>
+<pre><code>-- src/Membership/Forms/Address.elm
+update: Msg -&gt; Address -&gt; ( Address, Bool, Job Msg)
+update msg address =
+case msg of
+Close -&gt; ( address, True, Job.init )
+
+view : Address -&gt; Html Msg
+view model =
+let
+buttons =
+[ View.Component.button &quot;Save&quot; Save ]
+in
+View.Form buttons (render model)
+</code></pre><p>But this means that each form will have to implement their own validate, save and response which are also common.</p>
+<pre><code class="lang-haskell"><span class="hljs-title">update</span>: <span class="hljs-type">Msg</span> -&gt; <span class="hljs-type">Address</span> -&gt; ( <span class="hljs-type">Address</span>, <span class="hljs-type">Bool</span>, <span class="hljs-type">Job</span> <span class="hljs-type">Msg</span>)
+<span class="hljs-title">update</span> msg address =
+<span class="hljs-title">case</span> msg <span class="hljs-keyword">of</span>
+<span class="hljs-type">Save</span> -&gt;
+<span class="hljs-title">case</span> validate address <span class="hljs-keyword">of</span>
+[] -&gt;
+(address, <span class="hljs-type">False</span>, addressApi address |&gt; <span class="hljs-type">Job</span>.fromTask <span class="hljs-type">SaveResponse</span>)
+<span class="hljs-title">errs</span> -&gt;
+({ address | validationErrors = errs }, <span class="hljs-type">False</span>, <span class="hljs-type">Job</span>.init)
+
+<span class="hljs-type">SaveResponse</span> response -&gt;
+<span class="hljs-comment">-- common code for all forms</span>
+</code></pre>
+<p>So what are the good and bads of this approach.</p>
+<p>Pros:</p>
+<ul>
+<li>The view uses a helper and provides a consistent layout</li>
+<li>Each form is independant and arguments, return value do not have to be homogenous</li>
+</ul>
+<p>Cons:</p>
+<ul>
+<li>There appears to be alot of repeat code in the update and the view to handle saves, validation, closing etc...</li>
+</ul>
+<p>So by this time I was itching for some component.</p>
+<h4 id="approach-1-forms-manager-module">Approach 1: Forms manager module</h4>
+<p>The common theme around forms is that we were wiring the save, response and view up for every form, repetitive. So by having a top level manager that held the form state and the msgs, forms could just expose <code>save</code>, <code>validate</code> and <code>update</code> for the manager to call. It would also handle validation errors in the one place!</p>
+<pre><code class="lang-haskell"><span class="hljs-comment">-- Forms.elm</span>
+<span class="hljs-class"><span class="hljs-keyword">type</span> alias <span class="hljs-type">Forms</span> =</span>
+{ formState : <span class="hljs-type">FormState</span>
+, validationErrors : <span class="hljs-type">List</span> <span class="hljs-type">String</span>
+}
+<span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-type">FormState</span></span>
+= <span class="hljs-type">NoForm</span>
+| <span class="hljs-type">AddressState</span> <span class="hljs-type">Address</span>
+| ... x30 forms
+
+<span class="hljs-title">view</span>: <span class="hljs-type">Forms</span> -&gt; <span class="hljs-type">Html</span> <span class="hljs-type">Msg</span>
+<span class="hljs-title">view</span> { formState, validationErrors } =
+<span class="hljs-title">let</span>
+<span class="hljs-title">headers</span> =
+[ <span class="hljs-type">View</span>.<span class="hljs-type">Components</span>.button <span class="hljs-string">&quot;Save&quot;</span> <span class="hljs-type">Save</span>
+, <span class="hljs-type">View</span>.<span class="hljs-type">Components</span>.button <span class="hljs-string">&quot;Close&quot;</span> <span class="hljs-type">Close</span>
+, viewErrors validationErrors
+]
+<span class="hljs-title">render</span> body =
+<span class="hljs-title">div</span> [] [ headers, body ]
+<span class="hljs-title">in</span>
+<span class="hljs-title">case</span> formState <span class="hljs-keyword">of</span>
+<span class="hljs-type">AddressState</span> address -&gt;
+<span class="hljs-title">render</span> (<span class="hljs-type">Address</span>.view address)
+</code></pre>
+<p>However, each msg that goes to the form now will have to have a corresponding <code>case ... of</code> to delegate it to the right form.</p>
+<pre><code>update : Msg -&gt; Forms -&gt; (Forms, Job Msg)
+update msg {formState, =
+case msg of
+FormMsg formMsg-&gt;
+updateForm formMsg formState
+Save -&gt;
+saveForm formState
+
+updateForm formMsg formState =
+case (formMsg, formState) of
+(AddressMsg msg, AddressState state) -&gt;
+Address.update msg address
+... x30 forms
+
+saveForm formState =
+case formState of
+AddressState state -&gt;
+Address.save state
+
+... x30 forms
+</code></pre><p>So let&apos;s analyse this approach.</p>
+<p>Pros:</p>
+<ul>
+<li>in view, <code>render</code> provides a consistent layout</li>
+<li>handling of form close, validate and save have been moved to a central place so the form itself doesn&apos;t have to repeat that code</li>
+<li>since all validation is of the same type, we only need to refer to a single validationErrors state in the view (actually, this is a opportunity for bugs... so this is not a pro)</li>
+</ul>
+<p>Cons:</p>
+<ul>
+<li>handling of validation in a common place can ( and has ) caused a bug where we forgot to clear it when closing a form. This would be trivially mitigated by composing the form state with the validation errors though ie <code>type alias Forms = { formState : ( FormState, List String ) }</code> or creating a <code>empty : Forms</code> function.</li>
+<li>it really hasn&apos;t generalised very much. It&apos;s moved the &apos;forms&apos; handling out of each of the form which is great w.r.t decoupling the form mechanics to what it does but having each msg type being accompanied by a <code>case ... of</code> that spans all the forms is undesirable. Luckily, our forms component only has a handful of common msg types.</li>
+</ul>
+<p><em>Aside: This is where we are at now, at the time of writing this article. Do not do this... it is no better than whatever else you&apos;re doing, fairly certain.</em></p>
+<h4 id="approach-2-forms-manager-module-with-an-interface">Approach 2: Forms manager module with an interface</h4>
+<p>I don&apos;t know what these are, but coming from the OO world, I shall call them... interfaces</p>
+<pre><code>type alias IForm formMsg formState =
+{ update : Repository -&gt; formMsg -&gt; formState -&gt; ( formState, Job formMsg )
+, save : Repository -&gt; formState -&gt; Result (List String) (Task Http.Error MemberPolicyDelta)
+, view : Repository -&gt; formState -&gt; Html formMsg
+, state : formState
+}
+</code></pre><p>So this is great, it allows me to do the following:</p>
+<pre><code class="lang-haskell"><span class="hljs-comment">-- define a IForm</span>
+
+<span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-type">FormState</span></span>
+= <span class="hljs-type">NoForm</span>
+| <span class="hljs-type">AddressState</span> (<span class="hljs-type">IForm</span> <span class="hljs-type">Address</span>.<span class="hljs-type">Msg</span> <span class="hljs-type">Address</span>)
+| ... x30 <span class="hljs-type">IForms</span>
+
+
+<span class="hljs-comment">-- initialise a form</span>
+
+<span class="hljs-type">MemberAddressForm</span> addressType -&gt;
+<span class="hljs-type">AddressState</span>
+{ update = <span class="hljs-type">Address</span>.update
+, save = <span class="hljs-type">Address</span>.save
+, view = <span class="hljs-type">Address</span>.view
+, state = <span class="hljs-type">Address</span>.init addressType membership.policy.addresses
+}
+|&gt; returnFormState
+
+<span class="hljs-comment">-- then in the update</span>
+<span class="hljs-title">updateIForm</span> : <span class="hljs-type">IFormMsg</span> -&gt; <span class="hljs-type">Forms</span> -&gt; (<span class="hljs-type">Forms</span>, <span class="hljs-type">Job</span> <span class="hljs-type">Msg</span>)
+<span class="hljs-title">updateIForm</span> formMsg { formState } =
+<span class="hljs-title">case</span> formState <span class="hljs-keyword">of</span>
+<span class="hljs-title">in</span>
+<span class="hljs-title">case</span> forms.formState <span class="hljs-keyword">of</span>
+<span class="hljs-type">AddressState</span> form -&gt;
+<span class="hljs-title">applyMsg</span> <span class="hljs-type">AddressState</span> <span class="hljs-type">AddressMsg</span> form
+... x <span class="hljs-number">30</span> forms
+
+<span class="hljs-comment">-- applyMsg gets a little bit hairy, let&apos;s walk through it</span>
+<span class="hljs-comment">-- the key here is that we get the generic save, update, state from the</span>
+<span class="hljs-comment">-- IForm</span>
+<span class="hljs-title">applyMsg</span> toFormState toFormMsg { save, update, state } =
+<span class="hljs-title">case</span> msg <span class="hljs-keyword">of</span>
+
+<span class="hljs-comment">-- then we can apply the form&apos;s msg and state to the form&apos;s update</span>
+<span class="hljs-comment">-- that the form provides, meaning we don&apos;t need the massive case ... of</span>
+<span class="hljs-type">IFormFormMsg</span> formMsg -&gt;
+<span class="hljs-title">update</span> repository formMsg state
+
+<span class="hljs-comment">-- this is just my shorthand for mapping state and msg</span>
+<span class="hljs-comment">-- back to the Forms.elm level of types</span>
+|&gt; mapStateAndJob toFormState toFormMsg
+
+<span class="hljs-comment">-- similarly, we apply the form&apos;s state to the form&apos;s save</span>
+<span class="hljs-comment">-- which means we skip on the big case ... of here as well</span>
+<span class="hljs-type">IFormSave</span> -&gt;
+<span class="hljs-title">case</span> save repository state <span class="hljs-keyword">of</span>
+<span class="hljs-type">Result</span>.<span class="hljs-type">Ok</span> httpRequest -&gt;
+( { forms | saveState = <span class="hljs-type">Saving</span> }, httpRequest )
+
+<span class="hljs-type">Result</span>.<span class="hljs-type">Err</span> validationErrors -&gt;
+{ forms | validationErrors = validationErrors }
+|&gt; (\forms_ -&gt; (forms_, <span class="hljs-type">Job</span>.init ))
+</code></pre>
+<p>It&apos;s ok if you didn&apos;t quite follow the whole (poorly presented) example above, the main idea here is that by making forms homogeneous and applying it to a single type, we no longer need a case ... of to handle each form behaviour.</p>
+<p><em>But</em>.</p>
+<p>In our case, it actually wasn&apos;t worth it. Because we still need one to route the correct msg/state to the right form and we still needed one for the view... <em>because is it a union type</em>.
+And we still needed one for the <code>init</code> of a form.</p>
+<p>Pros:</p>
+<ul>
+<li>The single IForm collects all update msgs into one <code>case ... of</code>.</li>
+<li>Impossible to make a logic error in form handling for a new form.</li>
+<li>Forms manager does not grow with each new feature of a form</li>
+<li>View and layout is still separated from the form</li>
+<li>New form creation are very streamlined</li>
+</ul>
+<p>Cons:</p>
+<ul>
+<li>More complex than the &apos;slap it on as you go&apos; solutions</li>
+<li>Feels like we&apos;re reimplementing <a href="../GLOSSARY.html#tea" class="glossary-term" title="A module that has init, update and view, wired up to Main in a nested fashion">TEA</a> ( which is what stopped me the first two times )</li>
+<li><em>Makes all forms homogeneous</em>. So the <code>Repository</code> that is passed into each form now holds quite a bit of unnecessary state because the interface has to take in the same datatypes and thus the end result is the lowest common denominator of state. <strong>This feels very bad</strong> as it goes against the whole minimalist approach we&apos;ve used throughout the rest of the project to reduce impossible state and decouple modules.</li>
+</ul>
+<h4 id="approach-3-forms-as-a-component">Approach 3: Forms as a component</h4>
+<p>So much in the ECS vein, instead of saying a address form <em>is</em> a form ( approach 0 ) or that there is a form manager that <em>has</em> all forms ( approaches 1 and 2 ), we say that a page is <em>composed of</em> an address editor and a form.</p>
+<p>Um actually, I haven&apos;t made this change yet ( as there isn&apos;t enough of a business case to do this atm ) so I&apos;ll let the avid reader try to link this section up with <a href="#components">Components</a> and see what results.</p>
+<h4 id="conclusions">Conclusions</h4>
+<p>So my feeling about how we&apos;ve done this is as unsatisfactory as how I&apos;ve left the reader on Approach 3. I hope the pros and cons have been useful in analysing the various approaches of making a re-usable component or at least that I&apos;ve steered you away from the above component approaches because the more I discuss them, the more I dislike them.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="file-structure.html" class="navigation navigation-prev " aria-label="Previous page: File structure">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="endpoints.html" class="navigation navigation-next " aria-label="Next page: Endpoints">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Forms","level":"1.9","depth":1,"next":{"title":"Endpoints","level":"1.10","depth":1,"path":"chapters/endpoints.md","ref":"chapters/endpoints.md","articles":[]},"previous":{"title":"File structure","level":"1.8","depth":1,"path":"chapters/file-structure.md","ref":"chapters/file-structure.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapters/forms.md","mtime":"2018-03-27T11:32:57.481Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-03-27T11:27:00.243Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
