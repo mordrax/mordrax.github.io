@@ -6,7 +6,7 @@ I use the term _components_ fairly loosely here. By a component, I mean a functi
 #### UI components
 
 We start with the simplest form of components and it looks like this:
-```
+```haskell
 input : String -> (String -> msg) -> Html msg
 readonlyTextInput : String -> Html msg
 
@@ -23,15 +23,17 @@ We also do dropdowns, which are all typed. They are either an enum or a dynamic 
 ```haskell
 genderDropdown : Lookup -> Int -> (Int -> msg) -> Html msg
 genderDropdown lookup =
-Dropdown.enumDropdown (Lookup.genders lookup) -- gender types are fixed (Enum)
+    Dropdown.enumDropdown (Lookup.genders lookup)   -- gender types are fixed (Enum)
+
 bsbDropdown : Lookup -> String -> (String -> msg) -> Html msg
 bsbDropdown lookup =
-Dropdown.dropdown (Lookup.bsb lookup) -- bsb is variable (Lookup table)
+    Dropdown.dropdown (Lookup.bsb lookup)           -- bsb is variable (Lookup table)
 ```
 
 This means our forms can use fields like this:
 ```
-View.Layout.paneField "Gender" (View.Components.genderDropdown lookup model.gender Gender)
+View.Layout.paneField "Gender"
+    (View.Components.genderDropdown lookup model.gender Gender)
 ```
 
 It took a bit of time to evolve our UI components to the function signatures above. I kept removing things until they had the minimal arguments required to make a function and when I couldn't take any more out, then I knew I was done.
@@ -44,12 +46,12 @@ A stateless component does not hold state. If you think that statement was obvio
 
 ```haskell
 type alias Address a =
-{ a
-| addressLine1 : String
-, countryCode : String
-, postcode : Int
-, state : String
-}
+    { a
+        | addressLine1 : String
+        , countryCode : String
+        , postcode : Int
+        , state : String
+    }
 
 update : Lookup -> Msg -> Address a -> Address a
 view : Lookup -> Bool -> Address a -> Html Msg
@@ -64,10 +66,10 @@ Sure enough our AddressesEditor is one such happy customer:
 
 ```haskell
 type alias AddressesEditor a =
-{ defaultAddress : Address a
-, addresses : List (Address a)
-, addressType : Enums.AddressType
-}
+    { defaultAddress : Address a
+    , addresses : List (Address a)
+    , addressType : Enums.AddressType
+    }
 ```
 
 It's concerned with different types of addresses like a home, work, delivery address and happily uses the AddressEditor.elm component to handle updating single addresses.
@@ -82,11 +84,12 @@ An Address**es**Editor (not to be confused with an AddressEditor) is one such co
 
 ```haskell
 type alias AddressesEditor a =
-{ defaultAddress : Address a
-, addresses : List (Address a)
-, addressType : Int
-, viewMode : ViewMode
-}
+    { defaultAddress : Address a
+    , addresses : List (Address a)
+    , addressType : Int
+    , viewMode : ViewMode
+    }
+
 init : Address a -> AddressesEditor a
 update : Lookup -> Msg -> AddressesEditor a -> ( AddressesEditor a, Job Msg )
 view : Lookup -> msg -> (Msg -> msg) -> AddressesEditor (AddressWithBarcode a) -> Html msg
@@ -105,23 +108,24 @@ Our current way of doing stateful components is for the component to hold only U
 
 ```haskell
 type alias StatefulGrid subject =
-Grid subject (Msg subject)
+    Grid subject (Msg subject)
+
 type alias Grid subject msg =
-{ columns : List (Column subject msg)
-, selected : subject -> Bool
-, rowClicked : Maybe (subject -> msg)
-, pageSizeChanged : Maybe (Int -> msg)
-, pageClicked : Maybe (Int -> msg)
-, pageSize : Int
-, pagePosition : Int
-, comparer : subject -> subject -> Bool
-, selection : List subject
-, multiSelect : Bool
-, sorter : subject -> subject -> Order
-, sortGrid : Bool
-, stateful : Bool
-, rowAttributes : subject -> List (Html.Attribute msg)
-}
+    { columns : List (Column subject msg)
+    , selected : subject -> Bool
+    , rowClicked : Maybe (subject -> msg)
+    , pageSizeChanged : Maybe (Int -> msg)
+    , pageClicked : Maybe (Int -> msg)
+    , pageSize : Int
+    , pagePosition : Int
+    , comparer : subject -> subject -> Bool
+    , selection : List subject
+    , multiSelect : Bool
+    , sorter : subject -> subject -> Order
+    , sortGrid : Bool
+    , stateful : Bool
+    , rowAttributes : subject -> List (Html.Attribute msg)
+    }
 
 initPaging : (subject -> subject -> Bool) -> StatefulGrid subject
 update : Msg subject -> StatefulGrid subject -> StatefulGrid subject
@@ -132,11 +136,11 @@ render : List subject -> Grid subject msg -> Layout.Block msg
 Let's not look too deep into the `type alias Grid`, it's a great example of how **not** to write bug free, minimal state type aliases. The point here is that `Grid` only holds _UI state_. It sorts, it selects, it pages and these are reflected in its UI state. When it comes time to call the view function, we pass the data into it.
 
 Usage looks like this:
-```
+```haskell
 Grid.empty
-|> Grid.addCol "Component" .description
-|> Grid.addCol "From Date" (.fromDate >> Alfred.Dates.toDate)
-|> Grid.render waitingPeriods
+    |> Grid.addCol "Component" .description
+    |> Grid.addCol "From Date" (.fromDate >> Alfred.Dates.toDate)
+    |> Grid.render waitingPeriods
 ```
 
 #### Hybrid components
@@ -145,15 +149,16 @@ So our stateless components define the data that they interact with in terms of 
 
 ```haskell
 type alias ReceiptMethod a =
-{ a
-| receiptMethodTypeId : String
-, methodReference : String
-, methodReferenceName : String
-, methodDate : DateTime
-}
+    { a
+        | receiptMethodTypeId : String
+        , methodReference : String
+        , methodReferenceName : String
+        , methodDate : DateTime
+    }
+
 type alias ReceiptMethodEditor =
-{ newRecipientToggle : NewRecipientToggle
-}
+    { newRecipientToggle : NewRecipientToggle
+    }
 
 update : Lookup -> Msg -> ReceiptMethod a -> ReceiptMethodEditor -> ( ReceiptMethod a, ReceiptMethodEditor, Job Msg )
 view : Lookup -> ReceiptMethod a -> ReceiptMethodEditor -> Html Msg
@@ -167,14 +172,16 @@ The `update` function explicitly takes in both separately and returns both. This
 I just wanted to show off our 'wizard' component and demonstrate another kind of component.
 ```
 type alias Wizard oz msg =
-{ steps : ZipList (Step oz msg)
-}
+    { steps : ZipList (Step oz msg)
+    }
+
 type alias Step state msg =
-{ validStep : state -> Bool
-, init : state -> ( state, Job msg )
-, view : state -> Html msg
-, validate : state -> List String
-}
+    { validStep : state -> Bool
+    , init : state -> ( state, Job msg )
+    , view : state -> Html msg
+    , validate : state -> List String
+    }
+
 next : state -> Wizard state msg -> ( Wizard state msg, state, Job msg )
 back : state -> Wizard state msg -> ( Wizard state msg, state, Job msg )
 
@@ -187,22 +194,22 @@ Used like this:
 
 ```haskell
 Wizard.init
-[ Wizard.makeStep (viewBase lookup) (always [])
-, Wizard.makeStep (viewNewDependant lookup) validateNewDependant
-|> Wizard.withCondition (...)
-, Wizard.makeStep (viewMemberTransfer lookup) validateMemberTransfer
-|> Wizard.withInit ...a Job
-|> Wizard.withCondition (\state -> ... True/False)
-]
-
+    [ Wizard.makeStep (viewBase lookup) (always [])
+    , Wizard.makeStep (viewNewDependant lookup) validateNewDependant
+        |> Wizard.withCondition (...)
+    , Wizard.makeStep (viewMemberTransfer lookup) validateMemberTransfer
+        |> Wizard.withInit ...a Job
+        |> Wizard.withCondition (\state -> ... True/False)
+    ]
 
 -- on next
 case Wizard.validate state wizard of
-[] ->
-let
-( nextWizard, nextState, job ) =
-Wizard.next state wizard
-in
+    [] ->
+        let
+            ( nextWizard, nextState, job ) =
+                Wizard.next state wizard
+        in
+
 -- on view
 Wizard.view state wizard
 ```

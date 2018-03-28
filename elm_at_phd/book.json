@@ -1,0 +1,12 @@
+{
+  "structure": {
+
+  },
+  "plugins": ["-highlight", "sunlight-highlighter"],
+  "pluginsConfig": {
+    "sunlight-highlighter": {
+      "theme": "gitbook",
+      "lineNumber": true
+    }
+  }
+}

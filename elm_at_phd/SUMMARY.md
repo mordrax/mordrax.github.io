@@ -1,8 +1,8 @@
 # Summary
 
-* [Introduction](/chapters/introduction.md)
+* [Introduction](/README.md)
 * [Prologue](/chapters/prologue.md)
-* [Brave new w...holy cow!](/chapters/do-not.md)
+* [Brave new w...holy cow!](/chapters/brave-new-world.md)
 * [Refactoring](/chapters/refactoring.md)
 * [Compile time](/chapters/compile-time.md)
 * [Components](/chapters/components.md)
@@ -11,9 +11,8 @@
 * [Endpoints](/chapters/endpoints.md)
 * [Child to Parent/Child/Sibling/First Cousin 2nd removed Communication](/chapters/child-to-parent.md)
 * [Extensible type hell](/chapters/extensible-type-hell.md)
-* [Lookup](/chapters/lookup.md)
 * [Final words](/chapters/final-words.md)
-* [Glossary](/chapters/GLOSSARY.md)
+* [Glossary](/GLOSSARY.md)
 
 [^2]: www.google.com
 

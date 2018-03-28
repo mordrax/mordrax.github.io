@@ -50,9 +50,9 @@ Some commentary on our file structuring.
 
 1. (_Simple subsystems are root level modules_) There is a bunch of files at root level, they are typically directly imported by Main or they are global like Types.Elm or Routes.elm
 
-2. (_Stateful Components_) The elm-guide says don't use _reusable components_ but doesn't actually define what it is. In our experience, certain patterns of components have emerged. We discuss these in depth in [Components](#components). Hint: UI state and Domain state should not be grouped under the same terminology of 'state'.
+2. (_Stateful Components_) The elm-guide says don't use _reusable components_ but doesn't actually define what it is. In our experience, certain patterns of components have emerged. We discuss these in depth in [Components](/chapters/components.md). Hint: UI state and Domain state should not be grouped under the same terminology of 'state'.
 
-3. (_OBSOLETE: all helper functions_) So we used to group helper functions in the one module as you do in _most_ other programming languages (disclaimer: I only know C#, Ruby, Java, Javascript does this). However, as the avid reader would know from having already read [Compile Time](#compile-time), this is actually a really bad idea in Elm because a helper module by definition is a toolbox for the rest of your app.
+3. (_OBSOLETE: all helper functions_) So we used to group helper functions in the one module as you do in _most_ other programming languages (disclaimer: I only know C#, Ruby, Java, Javascript does this). However, as the avid reader would know from having already read [Compile Time](/chapters/compile-time.md), this is actually a really bad idea in Elm because a helper module by definition is a toolbox for the rest of your app.
 
 ```haskell
 touch Alfred.elm
@@ -63,17 +63,18 @@ Ah compiler, always so friendly.
 
 Instead, we now have a folder called Alfred and try to break our helpers up into modules that are commonly used together.
 
-4. (_Explained in the Forms section_) [Forms](#forms), what a mess.
+4. (_Explained in the Forms section_) [Forms](/chapters/forms.md), what a mess.
 
 5. (_aka Repository, business logic for get/set of data_) We don't use opaque types and it's already bitten me twice. As a team grows and introduces more junior/non-domain experts, I think it's definitely worth making domain models opaque. This folder contains all domain specific helpers (e.g Membership.getDependants will sort by age). Unfortunately, domain logic is also tied in page updates, in the page views and validators.
 
 6. (_global Type, wait... I can explain_) So Type.elm contains Id tags. The kind that looks like this:
 ```
 type alias PersonId
-= Int
+    = Int
+
 type QuoteId
-= Person PersonId
-| Member MemberId
+    = Person PersonId
+    | Member MemberId
 ```
 The compile time on this is tolerable because these IDs are defined by the backend and change rarely.
 
