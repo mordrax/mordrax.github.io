@@ -29,8 +29,7 @@ type alias HasId a =
 surnameFirstnameId : HasSurnameFirstName (HasId a) -> String
 surnameFirstnameId { surname, firstName, id } =
     surname ++ ", " ++ firstName ++ " ( " ++ (id |> Maybe.map toString |> Maybe.withDefault "") ++ " ) "
-
-```haskell
+```
 
 Oracle is great, it allows us to fetch complex relationships in our data models by specifying the minimal fields required and also allows us to mix and match these type aliases. It also means that the functions are not tied to any particular record and we have _alot_ of records that repeat fields.
 

@@ -7,13 +7,19 @@ Firstly, let's define what I mean by a form. It's a TEA module with some common 
 ```haskell
 -- src/Membership/Forms.elm
 type FormState
-= NoForm
-| AddressState Address
-| ... x30 forms
+    = NoForm
+    | AddressState Address
+    | ... x30 forms
+
+
 -- src/Membership/Forms/Address.elm
 
-type alias Address = ...
-type Msg = ...
+type alias Address
+    = ...
+
+type Msg
+    = ...
+
 init : Address
 update: Msg -> Address -> (Address, Job Msg)
 view: Address -> Html msg
@@ -30,20 +36,21 @@ I've rewritten the mechanism around opening, closing, saving and viewing of a fo
 #### Approach 0: Forms as pages, share view
 
 The simplest solution is to wire up each form like a TEA module. The parent will `init` to open and the form will respond with a tuple to close itself. Since their layout is similar, we used a common view function.
-```
+
+```haskell
 -- src/Membership/Forms/Address.elm
 update: Msg -> Address -> ( Address, Bool, Job Msg)
 update msg address =
-case msg of
-Close -> ( address, True, Job.init )
+    case msg of
+        Close -> ( address, True, Job.init )
 
 view : Address -> Html Msg
 view model =
-let
-buttons =
-[ View.Component.button "Save" Save ]
-in
-View.Form buttons (render model)
+    let
+        buttons =
+            [ View.Component.button "Save" Save ]
+    in
+    View.Form buttons (render model)
 ```
 
 But this means that each form will have to implement their own validate, save and response which are also common.
@@ -51,16 +58,17 @@ But this means that each form will have to implement their own validate, save an
 ```haskell
 update: Msg -> Address -> ( Address, Bool, Job Msg)
 update msg address =
-case msg of
-Save ->
-case validate address of
-[] ->
-(address, False, addressApi address |> Job.fromTask SaveResponse)
-errs ->
-({ address | validationErrors = errs }, False, Job.init)
+    case msg of
+        Save ->
+            case validate address of
+                [] ->
+                    (address, False, addressApi address |> Job.fromTask SaveResponse)
 
-SaveResponse response ->
--- common code for all forms
+                errs ->
+                    ({ address | validationErrors = errs }, False, Job.init)
+
+        SaveResponse response ->
+            -- common code for all forms
 ```
 
 So what are the good and bads of this approach.
@@ -81,52 +89,55 @@ The common theme around forms is that we were wiring the save, response and view
 ```haskell
 -- Forms.elm
 type alias Forms =
-{ formState : FormState
-, validationErrors : List String
-}
+    { formState : FormState
+    , validationErrors : List String
+    }
+
 type FormState
-= NoForm
-| AddressState Address
-| ... x30 forms
+    = NoForm
+    | AddressState Address
+    | ... x30 forms
 
 view: Forms -> Html Msg
 view { formState, validationErrors } =
-let
-headers =
-[ View.Components.button "Save" Save
-, View.Components.button "Close" Close
-, viewErrors validationErrors
-]
-render body =
-div [] [ headers, body ]
-in
-case formState of
-AddressState address ->
-render (Address.view address)
+    let
+        headers =
+            [ View.Components.button "Save" Save
+            , View.Components.button "Close" Close
+            , viewErrors validationErrors
+            ]
+
+        render body =
+            div [] [ headers, body ]
+    in
+    case formState of
+        AddressState address ->
+            render (Address.view address)
 ```
 
 However, each msg that goes to the form now will have to have a corresponding `case ... of` to delegate it to the right form.
-```
+
+```haskell
 update : Msg -> Forms -> (Forms, Job Msg)
-update msg {formState, =
-case msg of
-FormMsg formMsg->
-updateForm formMsg formState
-Save ->
-saveForm formState
+update msg {formState, formMsg} =
+    case msg of
+        FormMsg formMsg->
+            updateForm formMsg formState
+        Save ->
+            saveForm formState
 
 updateForm formMsg formState =
-case (formMsg, formState) of
-(AddressMsg msg, AddressState state) ->
-Address.update msg address
-... x30 forms
+    case (formMsg, formState) of
+        (AddressMsg msg, AddressState state) ->
+            Address.update msg address
+        ... x30 forms
 
 saveForm formState =
-case formState of
-AddressState state ->
-Address.save state
+    case formState of
+        AddressState state ->
+            Address.save state
 
-... x30 forms
+        ... x30 forms
 ```
 
 So let's analyse this approach.
@@ -145,13 +156,14 @@ _Aside: This is where we are at now, at the time of writing this article. Do not
 #### Approach 2: Forms manager module with an interface
 
 I don't know what these are, but coming from the OO world, I shall call them... interfaces
-```
+
+```haskell
 type alias IForm formMsg formState =
-{ update : Repository -> formMsg -> formState -> ( formState, Job formMsg )
-, save : Repository -> formState -> Result (List String) (Task Http.Error MemberPolicyDelta)
-, view : Repository -> formState -> Html formMsg
-, state : formState
-}
+    { update : Repository -> formMsg -> formState -> ( formState, Job formMsg )
+    , save : Repository -> formState -> Result (List String) (Task Http.Error MemberPolicyDelta)
+    , view : Repository -> formState -> Html formMsg
+    , state : formState
+    }
 ```
 
 So this is great, it allows me to do the following:
@@ -160,57 +172,55 @@ So this is great, it allows me to do the following:
 -- define a IForm
 
 type FormState
-= NoForm
-| AddressState (IForm Address.Msg Address)
-| ... x30 IForms
+    = NoForm
+    | AddressState (IForm Address.Msg Address)
+    | ... x30 IForms
 
 
 -- initialise a form
 
 MemberAddressForm addressType ->
-AddressState
-{ update = Address.update
-, save = Address.save
-, view = Address.view
-, state = Address.init addressType membership.policy.addresses
-}
-|> returnFormState
+    AddressState
+        { update = Address.update
+        , save = Address.save
+        , view = Address.view
+        , state = Address.init addressType membership.policy.addresses
+        }
+    |> returnFormState
 
 -- then in the update
 updateIForm : IFormMsg -> Forms -> (Forms, Job Msg)
 updateIForm formMsg { formState } =
-case formState of
-in
-case forms.formState of
-AddressState form ->
-applyMsg AddressState AddressMsg form
-... x 30 forms
+    case forms.formState of
+        AddressState form ->
+            applyMsg AddressState AddressMsg form
+        ... x 30 forms
 
 -- applyMsg gets a little bit hairy, let's walk through it
 -- the key here is that we get the generic save, update, state from the
 -- IForm
 applyMsg toFormState toFormMsg { save, update, state } =
-case msg of
+    case msg of
 
 -- then we can apply the form's msg and state to the form's update
 -- that the form provides, meaning we don't need the massive case ... of
-IFormFormMsg formMsg ->
-update repository formMsg state
+        IFormFormMsg formMsg ->
+            update repository formMsg state
 
 -- this is just my shorthand for mapping state and msg
 -- back to the Forms.elm level of types
-|> mapStateAndJob toFormState toFormMsg
+            |> mapStateAndJob toFormState toFormMsg
 
 -- similarly, we apply the form's state to the form's save
 -- which means we skip on the big case ... of here as well
-IFormSave ->
-case save repository state of
-Result.Ok httpRequest ->
-( { forms | saveState = Saving }, httpRequest )
+        IFormSave ->
+            case save repository state of
+                Result.Ok httpRequest ->
+                    ( { forms | saveState = Saving }, httpRequest )
 
-Result.Err validationErrors ->
-{ forms | validationErrors = validationErrors }
-|> (\forms_ -> (forms_, Job.init ))
+                Result.Err validationErrors ->
+                    { forms | validationErrors = validationErrors }
+                        |> (\forms_ -> (forms_, Job.init ))
 ```
 
 It's ok if you didn't quite follow the whole (poorly presented) example above, the main idea here is that by making forms homogeneous and applying it to a single type, we no longer need a case ... of to handle each form behaviour.
@@ -237,7 +247,7 @@ Cons:
 
 So much in the ECS vein, instead of saying a address form _is_ a form ( approach 0 ) or that there is a form manager that _has_ all forms ( approaches 1 and 2 ), we say that a page is _composed of_ an address editor and a form.
 
-Um actually, I haven't made this change yet ( as there isn't enough of a business case to do this atm ) so I'll let the avid reader try to link this section up with [Components](#components) and see what results.
+Um actually, I haven't made this change yet ( as there isn't enough of a business case to do this atm ) so I'll let the avid reader try to link this section up with [Components](/chapters/components.md) and see what results.
 
 #### Conclusions
 
