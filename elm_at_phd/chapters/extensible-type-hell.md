@@ -1,38 +1,134 @@
 # Extensible type hell
 
-_Extensible types are great! (as long as you read the fine print). Step outside of their basic usage and the type errors start to look very strange. We use extensible types in Components, as domain model getters and in our Endpoints for encoding/decoding. I also discuss a darker side to their versatility when trying to convert between concrete and extensible types._
+_Extensible types are a great way to make reusable components. However, step outside of their basic usage and the type errors start to look very strange. We use extensible types in [Components](/chapters/components), as [domain model getters](/chapters/tools.md#oracle) and in our [Endpoints](/chapters/endpoints.md) for encoding/decoding. However, we have encountered, thrice now, a perplexing error when converting from concrete to extensible types._
 
-Our [Components](/chapters/components.md) make heavy use of extensible types, because by definition, they are only a component if they are shared between at least one other page/component/thing. So the types they work with has to be parameterised. eg:
+This section exists because I spent two days scratching my head and later on observed both my work colleagues (concurrent financial systems expert and haskell guy) doing the same thing. The problem arises from a compiler error such as this:
 
 ```haskell
-type alias Address a =
-    { a
-        | addressLine1 : String
-        , countryCode : String
-        , postcode : Int
-        , state : String
+TYPE MISMATCH
+Line 11, Column 13
+The definition of container does not match its type annotation.
+
+The type annotation for container says it is a:
+
+Main.PointContainer Main.ThreeDPoint
+But the definition (shown above) is a:
+
+Main.PointContainer { z : Int }
+Hint: Looks like a record is missing these fields: x and y. Potential typos include:
+
+x -> z
+y -> z
+```
+
+So the compiler says: "The type annotation say it's the following"
+
+```haskell
+Main.PointContainer Main.ThreeDPoint
+```
+
+But you are giving it this instead:
+```haskell
+Main.PointContainer { z : Int }
+```
+
+Let's look at the relevant code (full demo[^1] hosted by ellie-app[^2]):
+
+```haskell
+module Main exposing (main)
+
+import Html exposing (Html, text)
+
+
+main : Html msg
+main =
+    let
+        container : PointContainer ThreeDPoint
+        container =
+            make3D 1 2 3
+                |> makeContainer
+    in
+    container
+        |> (\{ point } -> printAPoint point)
+
+type alias PrintablePoint a =
+    { a | x : Int, y : Int }
+
+
+type alias ThreeDPoint =
+    { x : Int, z : Int, y : Int }
+
+
+type alias PointContainer xyPoint =
+    { point : PrintablePoint xyPoint
     }
+
+
+makeContainer : PrintablePoint a -> PointContainer a
+makeContainer printablePoint =
+    { point = printablePoint }
+
+
+make3D : Int -> Int -> Int -> ThreeDPoint
+make3D =
+    ThreeDPoint
 ```
 
-We have a certain model helper (Oracle.elm) that works off common fields and types. Since the backend is heavily constructed via interfaces, our endpoints typically contains many overlapping fields. Oracle helps reduce getters:
+So going back to our error, let's work out what is going on:
 
 ```haskell
--- Oracle.elm
-type alias HasSurnameFirstName a =
-    { a | surname : String, firstName : String }
-
-type alias HasId a =
-    { a | id : Maybe Int }
-
-{-| Returns: Jones, Bob ( 123 )
--}
-surnameFirstnameId : HasSurnameFirstName (HasId a) -> String
-surnameFirstnameId { surname, firstName, id } =
-    surname ++ ", " ++ firstName ++ " ( " ++ (id |> Maybe.map toString |> Maybe.withDefault "") ++ " ) "
+-- the error is in the 'container' function.
+container : PointContainer ThreeDPoint
+container =
+    make3D 1 2 3          -- makes a ThreeDPoint = { x : Int, z : Int, y : Int }
+        |> makeContainer  -- takes in PrintablePoint a = { a | x : Int, y : Int }
+                          -- returns PointContainer = { point : PrintablePoint a }
 ```
 
-Oracle is great, it allows us to fetch complex relationships in our data models by specifying the minimal fields required and also allows us to mix and match these type aliases. It also means that the functions are not tied to any particular record and we have _alot_ of records that repeat fields.
+What's the problem???
 
-Practically though, we don't actually use this as much as the creator would have wished because the more complex getters typically come with domain logic which looks into our Model folder for logic.
+Turns out, it isn't _really_ a problem:
 
-Lastly, I touch on a type inference issue.
+```haskell
+container : PointContainer ThreeDPoint
+container =
+    make3D 1 2 3
+        |> toPrintablePoint
+        |> makeContainer
+
+toPrintablePoint : ThreeDPoint -> PrintablePoint ThreeDPoint
+toPrintablePoint =
+    identity
+```
+
+Here, all we're doing is matching the types, make3D returns a `ThreeDPoint` but makeContainer accepts a `PrintablePoint ThreeDPoint` so we have to give it that type. However, since they are the same concrete record, we use use the `identity` function here... confused? So am I.
+
+I played around with a few other things:
+```haskell
+
+-- just add identity, Fail.
+container : PointContainer ThreeDPoint
+container =
+    make3D 1 2 3
+        |> identity
+        |> makeContainer
+
+-- add toPrintablePoint without a type annotation, Fail.
+container : PointContainer ThreeDPoint
+container =
+    make3D 1 2 3
+        |> toPrintablePoint
+        |> makeContainer
+
+toPrintablePoint =
+    identity
+```
+
+The issue is definitely that the compiler is not able to resolve the two types. The full working demo[^3] demonstrates how adding a identity function solves the error.
+
+In time, others smarter than I will be able to explain to me why this behaviour occurs as such, however, for the moment, if you are hitting type issues which you are _sure_ should work, try explicitly converting the value to the type that's required even if the underlying record is the same.
+
+
+[^1]: Full broken version: https://ellie-app.com/f726SMFcpa1/0
+[^2]: By Luke Westby, a full featured elm compiler in your browser - https://ellie-app.com
+[^3]: Full working example : https://ellie-app.com/m9f8zgZZSa1/1

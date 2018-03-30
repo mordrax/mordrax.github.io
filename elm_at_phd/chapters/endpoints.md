@@ -132,12 +132,7 @@ decoder : JD.Decoder Person
 encoder : IPerson a -> JE.Value
 
 
--- This means the caller, our hybrid component, doesn't need to know about the record it's handling either.
-
--- some new age hybrid.elm
-guessAtGender: Person a -> ...
-guessAtGender impersonator =
-    Person.encode impersonator
+-- This means the caller, our hybrid component, isn't forced to use a concrete type to encode.
 ```
 
 

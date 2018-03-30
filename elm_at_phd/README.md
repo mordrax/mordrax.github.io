@@ -32,6 +32,11 @@ I also go over our [File Structure](/chapters/file-structure.md), which mostly g
 
 Finally, I [rant and rave](/chapters/final-words.md) about how much I love Elm and try my best to word it like it's an objective observation of the strengths and weaknesses of the language.
 
+#### Thanks
+
+To Julian Livingstone who was my mentor in Elm and gave his time freely to review and critique this article.
+He's also a mad keen Haskeller. Check out his wonderful Haskell book: http://www.happylearnhaskelltutorial.com/
+
 #### Footnotes
 
 [^1]: Castle of the Winds remake in Elm - https://github.com/mordrax/cotwelm

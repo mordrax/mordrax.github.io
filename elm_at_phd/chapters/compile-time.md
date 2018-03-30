@@ -16,17 +16,19 @@ Number of Files | Health of your app
 3-5 | Healthy! Read this section to laugh at my struggles but otherwise you're wasting time here.
 5-10 | You've likely already taken some evasive action, 5 is borderline, with 10, there's a margin to improve but hopefully the compiler will get smarter before your app needs to. There's not much to gain here.
 10-30 | If you've just been hacking along without a care, have ~100 files, this is likely where you're at. If this is a small hobby project, it's not a big issue. If you're at work and this is sizeable production code, shit will eventually hit the fan at the velocity you're going. Stop. Read this section. Improve.
-30+ | There is some serious coupling here. The [xkcd on compiling](https://xkcd.com/303/) is no longer funny because you're about to lose your job from lack of productivity.
+30+ | There is some serious coupling here. The xkcd on compiling[^7] is no longer funny because you're about to lose your job from lack of productivity.
 100+ | Do I even need to welcome you to your own personal hell? Read on. (Seriously though, if this is your average, and this section didn't help you, I'm happy to help you personally. Hit me up on elm-slack, #compile-time, @mordrax)
 
 So, the above was a bit of fun (need some fun after mashing out 4000 words). The serious point though is that a healthy app should really only be compiling 3-5 files _for most changes regardless of the size of the app_. This means when you hit 1000 files and 100k LoC, you're still only compiling 3-5 files. Of course this does not hold for your common files or library files because by definition, they will be imported by alot of modules but more on strategies to mitigate that in [File Structure](/chapters/file-structure.md).
+
+To give you an idea, our application of 450+ files with 45k LoC typically recompiles 3-6 modules with page changes. Components cause a jump to about 100+ taking over 3 minutes to complete. Touching Alfred.elm or our Types.elm definition recompiles over 200 files and we take a short coffee break. Unavoidable.
 
 #### Our story...
 
 We had ~350 files in ~30k LoC. **A typical change affected a 65+ files and compiled in ~2 minutes.** This meant adding a Html.div or a Debug.log took 2 minutes each time. This had a _HUGE_ effect on workflow and team morale. We literally stopped working and gave birth to elm-hack (ported a version[^6] to my game), our infamous compile aide. I won't go into the details there, my talk[^4] with slides[^5] goes into a bit more detail how we were able to get from 2 minutes down to 2 seconds. This bought us enough time to get to a point where management trusted us enough to let me fix the core issue.
 Fast forward 3 months, and a complete re-architect of the root modules, we're now at ~45k LoC in 426 files. A typical change will affect 3-4 files and take 15-30 secs.
 
-_(Aside: "Complete re-architect" sounds scarrrry, ooohhhhh, a COMPLETE re-architect, aaarrrhhhh. But we're in Elm. And I had done all the refactorings I mentioned in the refactoring section. I spent 2-3 days to do some major 1-2k lines of reshuffling of modules. Then I spent the rest of the week and another 3-4k lines to rewrite routing, page loading, port existing pages over. One week. Not the end of the world. Had about ~15 bugs, I only remember 3 but I don't think anyone would believe me if I said that after rewriting 5k LoC, I had three bugs. I remember these bugs because they still had impossible state. That's the only thing that breaks. reliably. every. time.)_
+_(Aside: "Complete re-architect" sounds scarrrry, ooohhhhh, a COMPLETE re-architect, aaarrrhhhh. But we're in Elm. And I had done all the refactorings I mentioned in the refactoring section. I spent 2-3 days to do some major 1-2k lines of reshuffling of modules. Then I spent the rest of the week and another 3-4k lines to rewrite routing, page loading, port existing pages over. One week, handful of bugs, not the end of the world. There is a very good reason experienced coders fear rewrites or changing core architecture, we've all experienced the pain of going through a long regression trail after such changes. Elm rewrites the rules. Refactor fearlessly.)_
 
 #### Case study ( Quotes )
 
@@ -170,3 +172,4 @@ So with this pattern, even if your app reaches 426 files, your compile time will
 [^4]: Elm Remote Meetup talk - https://youtu.be/ulrukPRYsws?t=50m4s
 [^5]: Elm Remote Meetup slides - https://docs.google.com/presentation/d/10vN7eLr3qsd4nK2zcxUHgbu68fO_yzAA-b7Hf7kEcik/edit?usp=sharing
 [^6]: elm-hack.sh, a script to compile single modules VERY fast - https://github.com/mordrax/cotwelm/blob/master/hack.sh
+[^7]: What we do when Elm is compiling - https://xkcd.com/303/
